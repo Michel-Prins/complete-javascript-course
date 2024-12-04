@@ -69,6 +69,7 @@ const markHigherBMI = bmiMark > bmiJohn;
 console.log(markHigherBMI);
 
 //Template Literals
+// Smiley: win + ;
 const michelNew = `I'm ${firstName} ❤`;
 console.log(michelNew)
 
