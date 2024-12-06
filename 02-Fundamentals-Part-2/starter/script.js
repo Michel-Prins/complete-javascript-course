@@ -374,3 +374,78 @@ const john = {
 }
 
 console.log(`${mark.fullName}'s BMI (${mark.calcBMI().toFixed(1)}) is ${mark.bmi > john.calcBMI() ? `higher` : `lower`} than ${john.fullName}'s BMI (${john.bmi.toFixed(1)})`)
+
+//==========================================================================================
+//FOR loops..
+const ages = [];
+for (let i = 0; i < years.length; i++) {        //ik zou zelf for (let i in years) gebruiken..
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+//Continue and break
+//continue gaat ie gewoon verder, en break stopt de hele loop waar je mee bezig was...
+
+//reverse loop
+for (let x = michelObject.length - 1; x >= 0; x--) {
+    console.log(x, michelObject[x]);
+}
+
+for (let excercise = 1; excercise < 4; excercise++) {
+    console.log(`--------starting excercise ${excercise} -------`);
+
+    for (let rep = 1; rep < 6; rep++) {
+        console.log(`Excersice ${excercise}: Lifthing weight repetition ${rep} 💪`)
+    }
+}
+
+//==========================================================================================
+//While Loops   => is flexibeler en zou je op meer plekken kunnen gebruiken... (Vooral als je geen counter kunt/wilt gebruiken...)
+let rep = 1;
+while (rep <= 10) {
+    console.log(`WHILE: Lifthing weight repetition ${rep} 💪`);
+    rep++;
+}
+
+//Waar WHILE sterk in is
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {                                //De kracht van een while loop...
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log(`Loop is about to end!`);
+}
+
+//==========================================================================================
+// CHALLENGE #4
+// Let's improve Steven's tip calculator even more, this time using loops!
+
+// Your tasks:
+
+// Create an array called bills containing all 10 test bill values.
+
+// Create empty arrays for the tips and the totals (tips and totals)
+
+// Use the calcTip function we wrote before (included in the starter code) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+
+
+
+// TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86, and 52.
+const billsArray = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tipsArray = [];
+const totalsArray = [];
+
+for (let i in billsArray) {
+    tipsArray.push(calcTip(billsArray[i]));
+    totalsArray.push(tipsArray[i] + billsArray[i]);
+}
+
+console.log(tipsArray, totalsArray);
+
+const calcAverageArray = function (arr) {
+    let sum = 0;
+    for (let i in arr) sum += arr[i];
+    return sum / arr.length;
+}
+
+console.log(`The average bill is ${calcAverageArray(billsArray)} dollars 💲`);
