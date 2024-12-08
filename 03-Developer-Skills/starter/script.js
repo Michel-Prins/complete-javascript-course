@@ -75,3 +75,43 @@ console.log(amplitudeNew);
 
 //==========================================================================================
 //==========================================================================================
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    // value: Number(prompt(`Degrees celsius: `)), //-> hier hebben we een aanpssing gedaan...
+    value: 10, //Gedaan om niet steeds die prompt te krijgen...
+  };
+  //   console.warn(measurement.value);       //Geeft een warming in console
+  //   console.error(measurement.value);      //Geeft een error in console
+  // B-> Find the bug
+  console.table(measurement);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+// debugger;   //Dan zet js zelf hier een breakpoint in de code om het te debuggen!
+console.log(measureKelvin());
+
+//==========================================================================================
+//==========================================================================================
+//Challange 1!
+const printForecast = function (arr) {
+  /*
+  Wat moet er gebeuren?
+    Loop
+    Concatinate a string
+  */
+
+  let str = '...';
+  for (let i in arr) {
+    //i wordt hier gezien als een string...
+    str += ` ${arr[i]}°C in ${Number(i) + 1} days ...`; //degrees symbol = alt + 0176
+  }
+  return str;
+};
+
+const testArr1 = [17, 21, 23];
+const testArr2 = [12, 5, -5, 0, 4];
+
+console.log(printForecast(testArr2));
