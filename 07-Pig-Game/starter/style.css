@@ -165,3 +165,8 @@ main {
   font-weight: 700;
   color: #c7365f;
 }
+
+/*  Creating a hidden class; Dus alles wat hidden in de class naam heeft zal niet zichtbaar zijn */
+.hidden {
+  display: none;
+}
