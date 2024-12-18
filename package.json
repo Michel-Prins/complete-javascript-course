@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5"
+  },
+  "name": "complete-javascript-course",
+  "version": "1.0.0",
+  "description": "This branch of the repo contains starter files and final code for all sections and projects of the course, **exactly as shown in the videos**.",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
