@@ -411,6 +411,59 @@ const ratingStars = [63405, 1808];
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 
+//excersise 2
+const { title, author, ISBN } = books[0];
+console.log(title, author, ISBN);
+
+const { keywords: tags2 } = books[0];
+console.log(tags2);
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+console.log(language, programmingLanguage);
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+
+({ title: bookTitle, author: bookAuthor } = books[0]);
+console.log(bookTitle, bookAuthor);
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+console.log(bookRating);
+
+const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+};
+
+printBookInfo(books[7]);
+
+//Excersise 3
+const bookAuthor2 = [...books[0].author, ...books[1].author];
+console.log(bookAuthor2);
+
+const spellWord = function (str) {
+  console.log(...str);
+};
+spellWord(`Hallo ik ben Michel! Ik ben de beste!!!`);
+
+//Excersise 4
+const [mainKeyword, ...rest] = books[0].keywords;
+console.log(mainKeyword, rest);
+
+const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+console.log(bookPublisher, restOfTheBook);
+
+// Op deze menier kan de parameter authors onbeperkt aan argumenten aan!
+
+const printBookAuthorsCount = function (title, ...authors) {
+  console.log(`The book "${title}" has ${authors.length} authors`);
+};
+
+printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+
 //==========================================================================================
 //==========================================================================================
 
