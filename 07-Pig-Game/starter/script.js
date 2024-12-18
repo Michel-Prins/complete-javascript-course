@@ -13,6 +13,7 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+// Global variablen defineeren
 let scores, currentScore, activePlayer, playing;
 
 // Starting conditions
@@ -21,6 +22,7 @@ const init = function () {
   score1El.textContent = 0;
   diceEl.classList.add('hidden');
 
+  //Glabal vars initialiseren
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
@@ -95,4 +97,5 @@ btnHold.addEventListener('click', function () {
   }
 });
 
+// Kan ook gelijk een functie toevoegen aan de button klikker...
 btnNew.addEventListener('click', init);
