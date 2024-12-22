@@ -45,6 +45,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is you delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizaa: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 const arr = [7, 8, 9];
@@ -84,6 +89,30 @@ console.log(...str);
 const newRestaurant = { foundedIn: 1998, ...restaurant, founder: 'Guru' };
 console.log(newRestaurant);
 
+//==========================================================================================
+//==========================================================================================
+
+//rest object
+const [a1, b1, ...others1] = [1, 2, 3, 4, 5];
+console.log(a1, b1, others1);
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+//Working functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i in numbers) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(4, 2, 6, 7, 3, 2, 6, 3);
+
+const x1 = [23, 5, 7];
+add(...x1);
 //==========================================================================================
 //==========================================================================================
 
@@ -469,3 +498,246 @@ printBookAuthorsCount('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 
 //==========================================================================================
 //==========================================================================================
+
+//Challange 1:
+// Coding Challenge #1
+
+/* 
+We're building a football betting app (soccer for my American friends 😅)!
+
+Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
+
+1. Create one player array for each team (variables 'players1' and 'players2')
+2. The first player in any player array is the goalkeeper and the others are field players. For Bayern Munich (team 1) create one variable ('gk') with the goalkeeper's name, and one array ('fieldPlayers') with all the remaining 10 field players
+3. Create an array 'allPlayers' containing all players of both teams (22 players)
+4. During the game, Bayern Munich (team 1) used 3 substitute players. So create a new array ('players1Final') containing all the original team1 players plus 'Thiago', 'Coutinho' and 'Perisic'
+5. Based on the game.odds object, create one variable for each odd (called 'team1', 'draw' and 'team2')
+6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
+7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
+
+TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Then, call the function again with players from game.scored
+
+GOOD LUCK 😀
+*/
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+//1
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+//2 -Rest operator
+const [gk, ...otherPlayers] = players1;
+console.log(gk, otherPlayers);
+
+//3 -Spread operator
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+//4
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+//5 -destructering
+// const [team1, draw, team2] = [game.odds.team1, game.odds.x, game.odds.team2];
+// console.log(team1, draw, team2);
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//6
+const printGoals = function (...playerName) {
+  console.log(
+    `${playerName} had scored goals. Total goals scored: ${playerName.length}`
+  );
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+//anders krijg je 1 array waarde, en nu allemaal...
+printGoals(...game.scored);
+
+//7
+team1 < team2 && console.log(`Team 1 is more likely to win`);
+team1 > team2 && console.log(`Team 2 is more likely to win`);
+
+//==========================================================================================
+//==========================================================================================
+
+//Looping over arrays (ES6) - for of loop
+for (const item of menuBoth) console.log(item);
+//deconstruct the item so you dont have to take 0: and 1 item...
+for (const [i, el] of menuBoth.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+//==========================================================================================
+//==========================================================================================
+// String methods !!!!
+
+const airline = `TAP Air Netherlands`;
+const plane = `A320`;
+
+console.log(airline.indexOf('N'));
+
+//substring: From 4th character...
+console.log(airline.slice(4));
+//Stopt TOT index nr 7
+console.log(airline.slice(4, 7));
+//Een woord uit de string halen...
+//Dit geval van index 0 tot aan de eerste spatie
+console.log(airline.slice(0, airline.indexOf(' ')));
+//Nu het laatste woord vanaf de laatste spatie(maar spatie niet meegerekend, dus +1) tot het eind
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-1));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') {
+    console.log(`You have got the middle seat`);
+  } else console.log(`You are lucky`);
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('22C');
+checkMiddleSeat('3E');
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'MIchEl';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+//Comparing Emails
+const email = 'hello@michel.io';
+const loginemail = '  Hello@Michel.Io \n';
+
+const lowerEmail = loginemail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+
+console.log(trimmedEmail);
+
+//Kan ook allemaal in 1 stap
+const normilizedEmail = loginemail.toLowerCase().trim();
+console.log(normilizedEmail);
+
+console.log(email === normilizedEmail);
+
+//replace parts of strings
+const priceEur = '288,98€';
+const priceUS = priceEur.replace('€', '$').replace(',', '.');
+
+console.log(priceUS);
+
+const announcement = `All passengers come to boarding door 23. Boarding door 23!`;
+console.log(announcement.replaceAll('door', 'gate'));
+
+//Regular expression
+console.log(announcement.replace(/door/g, 'gate'));
+
+//Booleans
+const plane1 = 'A320neo';
+console.log(plane.includes('A320'));
+console.log(plane.includes('Boing'));
+console.log(plane.startsWith('A32'));
+
+//practive exercise
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log(`You are not allowed on board`);
+  } else console.log(`Good flight`);
+};
+
+checkBaggage('I have a Laptop, some Foords and a pocket Knife');
+checkBaggage('Socks and a camera');
+checkBaggage('Snacks and a gun for self protection');
+
+console.log('a+very+nice+string'.split('+'));
+console.log('Michel Prins'.split(' '));
+
+const [firstName2, lastName2] = 'Michel Prins'.split(' ');
+
+const newName = ['Mr.', firstName2, lastName2.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizeName('michel prins');
+capitalizeName('jessica parker smith andrew state');
+
+//padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '-').padEnd(30, '-'));
+
+//Real world example
+const maskCreditCard = function (number) {
+  const str = number + ''; //String(number) is hetzelfe
+  const right4Digits = str.slice(-4);
+  console.log(right4Digits.padStart(str.length, '*'));
+};
+maskCreditCard(46846876484364866);
+maskCreditCard(4684687648);
+
+//repeat
+const message2 = 'Bad weather... All departures delayed...';
+console.log(message2.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} planes in line ${'✈'.repeat(n)}`);
+};
+
+planesInLine(5);
+// MDN string => you can find all methods for strings!!!!
