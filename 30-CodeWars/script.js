@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //==========================================================================================
 function rentalCarCost(d) {
@@ -27,7 +27,7 @@ function repeatStr(n, s) {
   return s.repeat(n);
 }
 
-console.log(repeatStr(10, "@"));
+console.log(repeatStr(10, '@'));
 
 //==========================================================================================
 function litres(time) {
@@ -54,7 +54,7 @@ function maps(x) {
   //     y[i] = x[i] * 2;
   // }
   // return y
-  return x.map((n) => n * 2); //CodeWars oplossing
+  return x.map(n => n * 2); //CodeWars oplossing
 }
 
 // In JavaScript, map() is a method of the Array object. It creates a new array by calling a function on every element of the original array and storing the results in a new array
@@ -71,7 +71,7 @@ console.log(zeroFuel(50, 25, 2));
 //==========================================================================================
 function invert(array) {
   // return array.map(n => n * -1);       //My solution
-  return array.map((n) => -n); //CodeWars solutions
+  return array.map(n => -n); //CodeWars solutions
 }
 
 console.log(invert([1, 2, 3, 4, 5]), invert([1, -2, 3, -4, 5]));
@@ -99,7 +99,7 @@ console.log(invert([1, 2, 3, 4, 5]), invert([1, -2, 3, -4, 5]));
 function points(games) {
   let points = 0;
   for (let i in games) {
-    const myArr = games[i].split(":"); //Weet niet of dit de snelste oplossing is!?
+    const myArr = games[i].split(':'); //Weet niet of dit de snelste oplossing is!?
     const x = parseInt(myArr[0], 10);
     const y = parseInt(myArr[1], 10);
     points += x > y ? 3 : x === y ? 1 : 0;
@@ -122,7 +122,7 @@ function points(games) {
 //   }
 
 console.log(
-  points(["1:0", "2:0", "3:0", "4:0", "2:1", "3:1", "4:1", "3:2", "4:2", "4:3"])
+  points(['1:0', '2:0', '3:0', '4:0', '2:1', '3:1', '4:1', '3:2', '4:2', '4:3'])
 );
 
 //==========================================================================================
@@ -143,10 +143,10 @@ console.log(setAlarm(true, true));
 //==========================================================================================
 function bmi(weight, height) {
   const bmi = weight / height ** 2;
-  if (bmi <= 18.5) return "Underweight";
-  if (bmi <= 25) return "Normal";
-  if (bmi <= 30) return "Overweight";
-  if (bmi > 30) return "Obese";
+  if (bmi <= 18.5) return 'Underweight';
+  if (bmi <= 25) return 'Normal';
+  if (bmi <= 30) return 'Overweight';
+  if (bmi > 30) return 'Obese';
 }
 
 console.log(bmi(80, 1.8));
@@ -154,12 +154,173 @@ console.log(bmi(80, 1.8));
 //==========================================================================================
 function sumMix(x) {
   let sum = 0; //online gebruiken ze de array.reduce method -> Die snap ik (nog) niet.
-  x.map((n) => (sum += Number(n)));
+  x.map(n => (sum += Number(n)));
   return sum;
 }
 
-console.log(sumMix(["3", 6, 6, 0, "5", 8, 5, "6", 2, "0"]));
+console.log(sumMix(['3', 6, 6, 0, '5', 8, 5, '6', 2, '0']));
 
 //==========================================================================================
 //==========================================================================================
 //TODO:  Zoveel mogelijk snippets maken die handig zouden zijn voor mijn gebruik.
+
+// Mijn oplossing...
+// const smash = function (words) {
+//   let str = '';
+//   for (const i of words) {
+//     // Door de for lus is dit nu een string en dus moet je concat doen...
+//     str = str.concat(' ', i);
+//   }
+//   return str.trim();
+// };
+
+//CodeWars oplossing:
+const smash = function (words) {
+  //Array kan je dus wel met join aan elkaar knopen....
+  return words.join(' ');
+};
+
+//Deze oplossing heb ik nog niet gehad qua function gebruik!
+// const smash = words => words.join(' ');
+
+const words = ['hello', 'world', 'this', 'is', 'great'];
+console.log(smash(words)); // returns "hello world this is great"
+
+//==========================================================================================
+//==========================================================================================
+// (let rep = 1; rep <= 30; rep++)
+
+//Zelfde als CodeWars :)
+const countBy = function (x, n) {
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(x * i);
+  }
+  return z;
+};
+
+console.log(countBy(1, 10));
+console.log(countBy(2, 5));
+
+//==========================================================================================
+//==========================================================================================
+
+const betterThanAverage = function (classPoints, yourPoints) {
+  const tot = classPoints.push(yourPoints);
+  let sum = 0;
+  for (let num of classPoints) {
+    sum += num;
+  }
+  return yourPoints > sum / tot;
+};
+
+console.log(betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75));
+console.log(betterThanAverage([29, 55, 74, 60, 11, 90, 67, 28], 21));
+
+//==========================================================================================
+//==========================================================================================
+const findAverage = function (array) {
+  const x = array.length;
+  let sum = 0;
+  if (x !== 0) {
+    for (let i of array) {
+      sum += i;
+    }
+    return sum / x;
+  } else return 0;
+};
+
+console.log(findAverage([1, 2, 3, 4]));
+
+//==========================================================================================
+//==========================================================================================
+
+// Eerste poging
+// const hero = function (bullets, dragons) {
+//   return bullets / 2 > dragons;
+// };
+
+//Zelf gedaan, met enig voorbeeld...
+const hero = (bullets, dragons) => bullets / 2 >= dragons;
+
+console.log(hero(100, 40));
+console.log(hero(1500, 751));
+
+//==========================================================================================
+//==========================================================================================
+// const getGrade = function (s1, s2, s3) {
+//   const score = (s1 + s2 + s3) / 3;
+//   console.log(score);
+
+// //   switch (score) {
+// //     case 0 <= score < 60:
+// //       return 'F';
+// //     case 0 <= score < 70:
+// //       return 'D';
+// //     case 70 <= score < 80:
+// //       return 'C';
+// //     case 80 <= score < 90:
+// //       return 'B';
+// //     case 90 <= score <= 100:
+// //       return 'A';
+// //   }
+// // };
+
+//   if (90 <= score <= 100) {
+//     return 'A';
+//   } else if (80 <= score < 90) {
+//     return 'B';
+//   } else if (70 <= score < 80) {
+//     return 'C';
+//   } else if (60 <= score < 70) {
+//     return 'D';
+//   } else if (0 <= score < 60) {
+//     return 'F';
+//   }
+// };
+
+//Waarom werkt deze dan wel?
+function getGrade(s1, s2, s3) {
+  const avg = (s1 + s2 + s3) / 3;
+  if (avg < 60) return 'F';
+  else if (avg < 70) return 'D';
+  else if (avg < 80) return 'C';
+  else if (avg < 90) return 'B';
+  else return 'A';
+}
+
+console.log(getGrade(70, 70, 70));
+console.log(getGrade(44, 55, 52));
+
+//==========================================================================================
+//==========================================================================================
+
+const getSum = function (a, b) {
+  let sum = 0;
+  if (a === b) {
+    return a;
+  } else if (a < b) {
+    sum = a;
+    for (let i = a + 1; i <= b; i++) {
+      sum += i;
+    }
+  } else {
+    sum = b;
+    for (let i = b + 1; i <= a; i++) {
+      sum += i;
+    }
+  }
+  return sum;
+};
+
+//CodeWars oplossing:
+// const GetSum = (a, b) => {
+//   let min = Math.min(a, b),
+//       max = Math.max(a, b);
+//   return (max - min + 1) * (min + max) / 2;
+// }
+
+console.log(getSum(-1, 2));
+console.log(getSum(5, -1));
+console.log(getSum(2, 2));
+console.log(getSum(0, 1));
