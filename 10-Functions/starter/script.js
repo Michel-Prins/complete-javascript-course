@@ -35,9 +35,9 @@ const checkIn = function (flightNum, passenger) {
   passenger.name = 'Mr. ' + passenger.name;
 
   if (passenger.passport === 13435468658) {
-    alert('Checked in');
+    // alert('Checked in');
   } else {
-    alert('Wrong passport');
+    // alert('Wrong passport');
   }
 };
 
@@ -53,3 +53,55 @@ const newPassport = function (person) {
 
 newPassport(michel);
 checkIn(flight, michel);
+
+//==========================================================================================
+//==========================================================================================
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+//Higher-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer(`JavaScript is the best!`, upperFirstWord);
+transformer(`JavaScript is the best!`, oneWord);
+
+//Bij DOM met addEventListener hadden we dit ook al gebruikt als transformer function (high-order function)
+
+//==========================================================================================
+//==========================================================================================
+// 137
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+// Omdat greeterHey een functie aanroept, dat een functie returns, dan kan je dit weer als functio gebruiken
+const greeterHey = greet('Hey');
+
+greeterHey('Michel');
+greeterHey('Tess');
+
+//Kan dus weer de 1ste functie ook gelijk aanroepen met 2 waardes...
+greet('Hello')('Michel');
+
+//Challenge arrow function (fail... niet gehad...)
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hello')('Tijn');
+
+//==========================================================================================
+//==========================================================================================
+//139
