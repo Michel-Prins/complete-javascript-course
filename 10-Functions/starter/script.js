@@ -104,4 +104,7 @@ greetArr('Hello')('Tijn');
 
 //==========================================================================================
 //==========================================================================================
-//139
+//139 => Een belangrijk stuk in functies.
+//In Bind kan je vaste waardes aan een functie meegenemen, die je dan niet meer als argument meer mee hoefd te geven.
+
+//142 closure is ook belangrijk!
