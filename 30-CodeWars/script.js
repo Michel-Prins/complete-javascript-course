@@ -324,3 +324,80 @@ console.log(getSum(-1, 2));
 console.log(getSum(5, -1));
 console.log(getSum(2, 2));
 console.log(getSum(0, 1));
+
+//==========================================================================================
+//==========================================================================================
+const toJadenCase = function (inputString) {
+  const words = inputString.split(' ');
+  const wordsUpper = [];
+
+  for (const n of words) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    wordsUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(wordsUpper.join(' '));
+};
+
+const testWord = "How can mirrors be real if our eyes aren't real";
+console.log(toJadenCase(testWord));
+
+//==========================================================================================
+//==========================================================================================
+
+//Eigen dingetje gemaakt voor iets te berekenen...
+// const puzzle = {
+//   a: 1,
+//   b: 2,
+//   c: 3,
+//   d: 4,
+//   e: 5,
+//   f: 6,
+//   g: 7,
+//   h: 8,
+//   i: 9,
+//   j: 10,
+//   k: 11,
+//   l: 12,
+//   m: 13,
+//   n: 14,
+//   o: 15,
+//   p: 16,
+//   q: 17,
+//   r: 18,
+//   s: 19,
+//   t: 20,
+//   u: 21,
+//   v: 22,
+//   w: 23,
+//   x: 24,
+//   y: 25,
+//   z: 26,
+// };
+
+// const puntenRij1 = 'draakjes drink kerst ketelman leugen lezer';
+// const puntenRij2 = 'pechkans sos tamari tesla zoefje';
+
+// const puzzelFunct = function (stringInput, puzzleInput) {
+//   let total = 0;
+//   for (let i in stringInput) {
+//     total += puzzleInput.i;
+//     // console.log(total);
+//   }
+//   console.log(total);
+//   return total;
+// };
+
+// // console.log(puzzle.t);
+// const totalRow1 = puzzelFunct(puntenRij1, puzzle);
+// const totalRow2 = puzzelFunct(puntenRij2, puzzle);
+
+// console.log(puntenRij1.length);
+// console.log(puntenRij2.length);
+
+// const truncateRow = function (str1, str2) {
+//   for (let i of str1) {
+//     console.log(i, str2);
+//   }
+// };
+
+// truncateRow(puntenRij1, puntenRij2);
