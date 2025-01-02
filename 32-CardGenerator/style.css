@@ -1,0 +1,101 @@
+/* Hier begint ie altijd mee...
+  Zo zet je dan de besis voor je site...   */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* Hier heb je denk ik die google fonts voor nodig? */
+  font-family: 'Poppings', sans-serif;
+}
+body {
+  background-color: #eff3ff;
+}
+/* Stijl van de container maken. Zou denk ik ook adhv ID kunnen... (wat denk ik beter zou zijn...)*/
+.container {
+  width: 300px;
+  /*Zonder deze zou hij helemaal in de hoek staan...*/
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+#card {
+  /*Weet nog niet wat dit voor effect heeft...*/
+  position: relative;
+  /*De eerst 50% van de circle is de positie, dus het midden (horizentaal), 2e (o%) is dus boven (vertikaal) De orange 45% is hoe groot die circel is, en die bij het witte, hoe groot dat stuk is*/
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgb(224, 49, 5) 35%,
+    #ffffff 35%
+  );
+  /*100% is ten opzichte van de container(parent)*/
+  width: 100%;
+  /*Hoeveel ruimte vanaf de randen de inhoud wordt weergegeven*/
+  padding: 30px 20px;
+  /* border: 1px solid black; */
+  /* Shaduw randje om de kaart heen*/
+  box-shadow: 0 25px 30px rgba(0, 0, 0, 0.15);
+  /*Ronde hoeken*/
+  border-radius: 10px;
+}
+/*TODO: zorgen dat deze image altijd in een vlak wordt geplaatst die 180x200px is zodat alle kaarten even groot zijn!*/
+#card img {
+  display: block;
+  width: 180px;
+  max-height: 200px;
+  position: relative;
+  margin: 20px auto;
+}
+.hp {
+  width: 60px;
+  background-color: #ffffff;
+  text-align: center;
+  /*boven 8px en links en rechts 0...*/
+  padding: 8px 0;
+  border-radius: 30px;
+  /*Waarom dit met auto helemaal naar rechts gaat?*/
+  margin-left: auto;
+  font-weight: 400;
+}
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+}
+.types {
+  display: flex;
+  justify-content: space-around;
+  /*When four values are specified, the margins apply to the top, right, bottom, and left in that order (clockwise).*/
+  margin: 20px 0 40px 0;
+}
+.hp span,
+.types span {
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.types span {
+  padding: 5px 20px;
+  border-radius: 20px;
+  color: #ffffff;
+}
+.stats {
+  /*Zo kan je verschillende waardes verdelen*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+.stats p {
+  color: #404060;
+}
+#btn {
+  display: block;
+  padding: 15px 60px;
+  font-size: 18px;
+  background-color: #292727;
+  color: #ffffff;
+  position: relative;
+  margin: 30px auto;
+  border: none;
+  border-radius: 30px;
+}
