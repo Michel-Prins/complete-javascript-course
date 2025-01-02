@@ -61,8 +61,13 @@ let generateCard = data => {
   const statDefence = data.stats[2].base_stat;
   const statSpeed = data.stats[5].base_stat;
 
-  //Set themeColor based on pokemon type
-  const themeColor = typeColor[data.types[0].type.name];
+  //Set themeColor based on pokemon type (origineel met maar 1 kleur)
+  // const themeColor = typeColor[data.types[0].type.name];
+
+  //Helaas is dit pas vanaf ES06!
+  const themeName = data.types.map(value => value.type.name);
+  const themeColor = themeName.map(color => typeColor[color]);
+
   card.innerHTML = `
   <p class="hp">
           <span>HP</span>
@@ -99,12 +104,11 @@ let styleCard = color => {
   // Achtergrond circel aanpassen
   card.style.background = `radial-gradient(
     circle at 50% 0%,
-    ${color} 35%,
+    ${color[0]} 35%,
     #ffffff 35%)`;
   //achtergrond van de type labels aanpassen -> Dit kan weer niet met een MAP!!!
-  //TODO: als er 2 types zijn, de 2e zijn eigen kleur geven!
-  card.querySelectorAll('.types span').forEach(typeColor => {
-    typeColor.style.backgroundColor = color;
+  card.querySelectorAll('.types span').forEach((typeColor, i) => {
+    typeColor.style.backgroundColor = color[i];
   });
 };
 
