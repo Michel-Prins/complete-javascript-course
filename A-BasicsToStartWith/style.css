@@ -1,0 +1,12 @@
+/* Hier begint ie altijd mee...
+  Zo zet je dan de besis voor je site...   */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* Hier heb je denk ik die google fonts voor nodig? */
+  font-family: 'Poppings', sans-serif;
+}
+body {
+  background-color: #eff3ff;
+}
