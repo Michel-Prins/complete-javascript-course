@@ -1,0 +1,12 @@
+/* . is een class
+# is een id 
+niks is een element...*/
+header {
+  display: flex;
+  padding-inline: 16px;
+  padding-block: 8px;
+  background-color: #3333;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+}
