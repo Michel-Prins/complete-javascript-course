@@ -47,13 +47,11 @@ const timeGenerator = () => {
     minutes += 1;
     seconds = 0;
   }
+  //format time
+  let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
+  let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
+  timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
 };
-
-//format time
-let secondsValue = seconds < 10 ? `0${seconds}` : seconds;
-let minutesValue = minutes < 10 ? `0${minutes}` : minutes;
-timeValue.innerHTML = `<span>Time:</span>${minutesValue}:${secondsValue}`;
-
 //For calculation moves
 const movesCounter = () => {
   movesCount += 1;
