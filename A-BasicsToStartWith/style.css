@@ -6,6 +6,10 @@
   box-sizing: border-box;
   /* Hier heb je denk ik die google fonts voor nodig? */
   font-family: 'Poppings', sans-serif;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
 }
 body {
   background-color: #eff3ff;
