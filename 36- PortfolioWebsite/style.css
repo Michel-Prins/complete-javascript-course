@@ -1,5 +1,10 @@
 /* Hier begint ie altijd mee...
-  Zo zet je dan de besis voor je site...   */
+  Zo zet je dan de besis voor je site...  
+  
+  em: Een relatieve eenheid die gebaseerd is op de lettergrootte van het element. 1em is gelijk aan de huidige lettergrootte.
+  rem: Een relatieve eenheid die gebaseerd is op de lettergrootte van het root-element (meestal de <html>-tag). 1rem is gelijk aan de lettergrootte van het root-element.
+  Pixels (px): In webdesign en digitale beeldvorming is een pixel de kleinste eenheid van een digitale afbeelding of grafisch element. Afstanden in pixels worden vaak gebruikt om marges, afstanden en afmetingen van elementen op een webpagina te definiëren
+*/
 * {
   padding: 0;
   margin: 0;
@@ -272,4 +277,103 @@ span {
   85% {
     width: calc(100% + 8px);
   }
+}
+.heading {
+  font-size: 8rem;
+  text-align: center;
+  margin: 5rem 0;
+}
+.education {
+  padding: 100px 15px;
+  background: var(--second-bg-color);
+}
+/* Section title */
+.education h2 {
+  margin-bottom: 5rem;
+}
+.timeline-items {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+/* Verticale streep gekleurd ten grootte van alle classes (item) in items.. */
+.timeline-items::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  left: calc(50% - 1px);
+}
+.timeline-item {
+  margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+.timeline-item:nth-child(odd) {
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  padding-left: calc(50% + 30px);
+}
+.timeline-dot {
+  height: 21px;
+  width: 21px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+  position: absolute;
+  left: calc(50% - 8px);
+  border-radius: 50%;
+  top: 10px;
+}
+.timeline-date {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  margin: 6px 0 15px;
+}
+.timeline-content {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-color);
+  padding: 30px 50px;
+  border-radius: 4rem;
+  box-shadow: 0 0 10px var(--main-color);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.timeline-content h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+/* Stijl de gehele scrollbar */
+::-webkit-scrollbar {
+  width: 15px; /* Breedte van de scrollbar */
+}
+
+/* Stijl de track (achtergrond) van de scrollbar */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+/* Stijl de "thumb" (het schuifgedeelte) van de scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+/* Stijl de "thumb" wanneer je eroverheen hovert */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color);
 }
