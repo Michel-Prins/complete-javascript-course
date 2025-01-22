@@ -169,3 +169,16 @@ fetch(
 //==========================================================================================
 //==========================================================================================
 // Krijg dit blijkbaar niet voor elkaar omdat ik json aanroep en iets van plain text terug krijg door de no-cors...
+
+// MPDV voorbeeld => Zal wel geen JS zijn!!!:
+// With CreateObject("MSXML2.XMLHTTP")
+//   Call .Open("POST", "http://server:8080/data/BOPerson/list?x-access-id=00012345", False, "12345", "mpdv")
+//   Call .SetRequestHeader("Content-Type", "application/json")
+//   Call .Send("{""params"":[{""acronym"":""person.card_id"", ""value"":""8555"",
+//   ""operator"":""EQUAL""}],
+//   ""columns"":[""person.card_id"", ""person.firstname"", ""person.lastname""],
+//   ""requestId"":1,
+//   ""language"":""de-DE"",
+//   ""returnAsObject"":false }")
+//   DataRequest = .responseText
+// End With
