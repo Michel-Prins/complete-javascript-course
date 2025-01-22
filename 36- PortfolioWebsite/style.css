@@ -470,22 +470,16 @@ section {
   gap: 2.5rem;
 }
 .services-box {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
   background-color: var(--main-color);
   /* Dit moet eigenlijk scalen naar de grootte */
-  height: 300px;
+  height: 600px;
   border-radius: 3rem;
   border: 5px solid transparent;
   cursor: pointer;
   transition: 0.4s ease-in-out;
-}
-.services-box .services-info {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  max-height: 20px;
-  justify-content: left;
-  align-items: baseline;
-  padding: 1rem 4rem;
 }
 .services-box:hover {
   background: var(--second-bg-color);
@@ -493,25 +487,35 @@ section {
   border: 5px solid var(--main-color);
   transform: scale(1.03);
 }
+.services-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
 .services-info h4 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
   line-height: 2;
+  margin: 2rem 0;
 }
 .services-info p {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  /* max-height: 100px; */
+  /* max-height: 600px; */
   line-height: 1.7;
   /* margin: auto; */
 }
 .services-info i {
-  font-size: 8rem;
+  font-size: 10rem;
 }
 
 .projects {
   background-color: var(--second-bg-color);
 }
+/* waar alle kaarten inzitten, vertel je wat er is. Zoals een grid... */
 .projects-box {
   display: grid;
   /* auto place de grid...
@@ -533,8 +537,11 @@ section {
   border-radius: 4rem;
   gap: 2rem;
   padding: 5rem 2rem;
+  /* Dan blijft het netjes binnen de grenzen en verder niks */
+  overflow: hidden;
   cursor: pointer;
   box-shadow: 0 0 5px var(--main-color);
+  /* Transition is echt voor hover effect... */
   transition: 0.3 ease;
 }
 .projects-card:hover {
@@ -542,8 +549,10 @@ section {
   transform: scale(1.02);
 }
 .projects-card img {
-  max-width: 300px;
   border-radius: 2em;
+  /* max-width: 300px; */
+  width: 300px;
+  height: 300px;
   /* dan houdt de afbeelding zijn verhoudingen... */
   object-fit: cover;
 }
