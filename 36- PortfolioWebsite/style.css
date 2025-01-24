@@ -116,7 +116,7 @@ span {
   cursor: pointer;
   /* hover effect */
   transition: 0.3s ease-in-out;
-  color: white;
+  color: var(--text-color);
   border: none;
   /* Voor scaling als het kleiner wordt, willen we niet dat de letters regel erondr gaan */
   text-wrap: nowrap;
@@ -637,7 +637,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 3rem;
-  margin: 5rem auto;
+  margin: 5rem 0;
   text-align: center;
 }
 .contact form .input-box {
@@ -730,7 +730,7 @@ section {
     margin: 0 5rem;
   }
 }
-
+/* Dit zijn aanpassingen voor als je een kleiner scherm gebruikt tot max 991 */
 @media (max-width: 991px) {
   header {
     padding: 2rem 3%;
@@ -762,6 +762,7 @@ section {
     padding: 2rem 3%;
   }
 }
+/* Dit zijn aanpassingen voor als je een kleiner scherm gebruikt tot max 895 */
 @media (max-width: 895px) {
   #menu-icon {
     display: block;
@@ -771,7 +772,7 @@ section {
     top: 100%;
     right: 0;
     width: 50%;
-    padding: 1rem 3%;
+    padding: 1rem 3rem;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(20px);
     border-bottom-left-radius: 2rem;
@@ -779,18 +780,27 @@ section {
     border-bottom: 2px solid var(--main-color);
     display: none;
   }
-  .navbar .active {
+  .navbar.active {
     display: block;
+  }
+  .gradient-btn {
+    display: none;
   }
   .navbar a {
     display: block;
     font-size: 2rem;
     margin: 3rem 0;
-    color: white;
+    color: var(--text-color);
   }
   .home {
+    /* image to top en text to buttom */
     flex-direction: column-reverse;
     margin: 5rem 4rem;
+    gap: 5rem;
+  }
+  .home-content {
+    align-items: center;
+    text-align: center;
   }
   .home-content h3 {
     font-size: 2.6rem;
@@ -805,6 +815,18 @@ section {
   }
   .home-img img {
     width: 56vw;
+  }
+  .about {
+    /* nu eerst text en dan image */
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .about h2 {
+    text-align: center;
+    margin: 2rem 2rem;
+  }
+  .about img {
+    width: 52vw;
   }
   .services h2 {
     margin-bottom: 3rem;

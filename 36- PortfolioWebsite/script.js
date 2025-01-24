@@ -1,13 +1,9 @@
 'use strict';
 
-// let menuIcon = document.querySelector('#menu-icon');
-// let navbar = document.querySelector('.navbar');
+let menuIcon = document.querySelector('#menu-icon');
+let navbar = document.querySelector('.navbar');
 // let sections = document.querySelectorAll('section');
 // let navLinks = document.querySelectorAll('header nav a');
-// console.log(menuIcon);
-// console.log(navbar);
-// console.log(sections);
-// console.log(navLinks);
 
 // window.onscroll = () => {
 //   sections.forEach(sec => {
@@ -27,8 +23,8 @@
 //   });
 // };
 
-// menuIcon.onclick = () => {
-//   // bx-x is een icon van de boxicon dingetje...
-//   menuIcon.classList.toggle('bx-x');
-//   navbar.classList.toggle('active');
-// };
+menuIcon.onclick = () => {
+  // bx-x is een icon van de boxicon dingetje...
+  menuIcon.classList.toggle('bx-x');
+  navbar.classList.toggle('active');
+};
