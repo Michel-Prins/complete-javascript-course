@@ -33,3 +33,9 @@ npm install --save express http-proxy-middleware
 
 express is a minimalistic web framework you can use to build API endpoints.
 http-proxy-middleware is a simple Node.js package to create an API proxy
+
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "circular-json": "^0.5.9",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
