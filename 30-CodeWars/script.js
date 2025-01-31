@@ -401,3 +401,153 @@ console.log(toJadenCase(testWord));
 // };
 
 // truncateRow(puntenRij1, puntenRij2);
+
+//==========================================================================================
+//==========================================================================================
+// Clock shows h hours, m minutes and s seconds after midnight.
+
+// Your task is to write a function which returns the time since midnight in milliseconds.
+// h = 0
+// m = 1
+// s = 1
+
+// result = 61000
+
+function past(h, m, s) {
+  //#Happy Coding! ^_^
+  return h * 3600000 + m * 60000 + s * 1000;
+}
+
+console.log(past(0, 1, 1));
+console.log(past(1, 1, 1));
+
+//CodeWars:
+function past2(h, m, s) {
+  let milliseconds = 0;
+  if (h >= 0 && h <= 23) {
+    milliseconds += h * 3600000;
+  }
+  if (m >= 0 && m <= 59) {
+    milliseconds += m * 60000;
+  }
+  if (s >= 0 && s <= 59) {
+    milliseconds += s * 1000;
+  }
+
+  return milliseconds;
+}
+
+console.log(past2(1, 1, 1));
+
+//==========================================================================================
+//==========================================================================================
+// The museum of incredibly dull things
+// The museum of incredibly dull things wants to get rid of some exhibits. Miriam, the interior architect, comes up with a plan to remove the most boring exhibits. She gives them a rating, and then removes the one with the lowest rating.
+
+// However, just as she finished rating all exhibits, she's off to an important fair, so she asks you to write a program that tells her the ratings of the exhibits after removing the lowest one. Fair enough.
+
+// Task
+// Given an array of integers, remove the smallest value. Do not mutate the original array/list. If there are multiple elements with the same value, remove the one with the lowest index. If you get an empty array/list, return an empty array/list.
+
+// Don't change the order of the elements that are left.
+
+// Examples
+// * Input: [1,2,3,4,5], output = [2,3,4,5]
+// * Input: [5,3,2,1,4], output = [5,3,2,4]
+// * Input: [2,2,1,2,1], output = [2,2,2,1]
+
+function removeSmallest(numbers) {
+  const lowest = Math.min(...numbers);
+  // delete numbers[Math.min(...numbers)]; //Dit is dan op basis van index, niet op waarde
+
+  for (var i = 0; i < numbers.length; i++) {
+    if (numbers[i] === lowest) {
+      numbers.splice(i, 1);
+    }
+  }
+  // return [numbers]; Ik had dit zoals ik de instructie, maar moest juist zonder...
+  return numbers;
+}
+
+//Bovenstaande ging hier wel goed, maar niet in de test op CodeWars.
+//Onderstaande wel
+function removeSmallest2(numbers) {
+  numbers = numbers.slice(0);
+  const min = Math.min(...numbers);
+  numbers.splice(numbers.indexOf(min), 1);
+  return numbers;
+}
+
+console.log(removeSmallest([1, 2, 3, 4, 5]));
+console.log(removeSmallest2([1, 2, 3, 4, 5]));
+console.log(removeSmallest([5, 3, 2, 1, 4]));
+console.log(removeSmallest2([5, 3, 2, 1, 4]));
+console.log(removeSmallest([]));
+console.log(removeSmallest2([]));
+
+//==========================================================================================
+//==========================================================================================
+// It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry about strings with less than two characters.
+
+const removeChar = function (str) {
+  return str.slice(1, -1);
+};
+
+console.log(removeChar('Hallo'));
+
+//==========================================================================================
+//==========================================================================================
+// The Western Suburbs Croquet Club has two categories of membership, Senior and Open. They would like your help with an application form that will tell prospective members which category they will be placed.
+
+// To be a senior, a member must be at least 55 years old and have a handicap greater than 7. In this croquet club, handicaps range from -2 to +26; the better the player the lower the handicap.
+
+// Input
+// Input will consist of a list of pairs. Each pair contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+
+// Output
+// Output will consist of a list of string values (in Haskell and C: Open or Senior) stating whether the respective member is to be placed in the senior or open category.
+
+// Example
+// input =  [[18, 20], [45, 2], [61, 12], [37, 6], [21, 21], [78, 9]]
+// output = ["Open", "Open", "Senior", "Open", "Open", "Senior"]
+
+const openOrSenior = function (data) {
+  let output = [];
+  for (let i in data) {
+    let age = data[i][0];
+    let handicap = data[i][1];
+
+    age >= 55 && handicap > 7 ? output.push('Senior') : output.push('Open');
+  }
+  return output;
+};
+
+// werkt goed.
+//CodeWars oplossing...
+function openOrSenior2(data) {
+  return data.map(([age, handicap]) =>
+    age >= 55 && handicap > 7 ? 'Senior' : 'Open'
+  );
+}
+
+console.log(
+  openOrSenior([
+    [18, 20],
+    [45, 2],
+    [61, 12],
+    [37, 6],
+    [21, 21],
+    [78, 9],
+  ])
+);
+
+console.log(
+  openOrSenior2([
+    [18, 20],
+    [45, 2],
+    [61, 12],
+    [37, 6],
+    [21, 21],
+    [78, 9],
+  ])
+);
